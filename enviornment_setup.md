@@ -157,23 +157,92 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
         If you experienced any issues while performing the previous steps, updating the rootfs image might solve the problems. (incase of broken rootfs) 
 
+        The USB stick must enter maskrom mode before it can be flashed.
+
+        To enter maskrom mode:
+
+        * Unplug the compute stick.
+        * Plug the stick into the USB port, wait 3 - 10 seconds and unplug.
+        * Repeat 5 times but do not unplug the fifth time.
+
+        Navigate to: ```~/ai/rockchip/flashTool/unix```
+
+        Run:
+
+        > ### ./linux_flash.sh
+
     * ### Setting up Network Address Translation (NAT) for the USB Stick.
 
         Setting up NAT is required for the stick to have access to the internet. This will be needed when we update the software and packages on the stick.
 
-    * ### Updating the USB Stick RKNN version.
+        The USB stick is recognized by the computer also as an ethernet adaptor, in this step we will use NAT to give the USB Compute Stick ethernet adaptor access to internet from our main ethernet port.
 
+        1. To list connected ethernet adaptors run:
 
-            
+            > ### ifconfig
 
+            ```
+            enx00e04c68080d: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    inet 192.168.0.119  netmask 255.255.255.0  broadcast 192.168.0.255
+                    inet6 fe80::868f:33c5:6422:a080  prefixlen 64  scopeid 0x20<link>
+                    ether 00:e0:4c:68:08:0d  txqueuelen 1000  (Ethernet)
+                    RX packets 1905317  bytes 2083512252 (2.0 GB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 757620  bytes 53580211 (53.5 MB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            enx10dcb69f0f1d: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    inet 192.168.180.1  netmask 255.255.255.0  broadcast 192.168.180.255
+                    inet6 fe80::827c:7b60:bd3c:d773  prefixlen 64  scopeid 0x20<link>
+                    ether 10:dc:b6:9f:0f:1d  txqueuelen 1000  (Ethernet)
+                    RX packets 224  bytes 13400 (13.4 KB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 251  bytes 46930 (46.9 KB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                    inet 127.0.0.1  netmask 255.0.0.0
+                    inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                    loop  txqueuelen 1000  (Local Loopback)
+                    RX packets 12535  bytes 1265078 (1.2 MB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 12535  bytes 1265078 (1.2 MB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            ```
+        Note the adaptor names that corresponds to our USB Compute stick and our primary ethernet adaptor. Set the shell enviornment variables.
+
+        _**You can identify the entry corresponding to the USB Stick by unpluging, calling ifconfig and then noting the missing entry.**_
         
+        > ### MAIN_ETH_NAME='enx00e04c68080d' (replace with your corresponding id)
+        > ### STICK_ETH_NAME='enx10dcb69f0f1d' (replace with your corresponding id)
 
-        
-            
+        #### Also note the MAC address of the USB Stick. 
+
+        1. Select the USB Ethernet with the MAC address matching the compute stick. 
+        ![1](figures/1.jpg)
+
+        1. Select the settings button and go to the IPv4 tab. 
+
+            * Select **Manual** as IPv4 method
+            * Set **ip address** as _192.168.180.1_
+            * Set **netmask** as _255.255.255.0_
+            * **Apply** settings
+
+            ![2](figures/2.png)
+
+        1. Open web browser and to to address **192.168.180.8** and login.
+
+            * Username: toybrick
+            * Password: toybrick
+
+        ![3](figures/3.png)
+
+        1. After logging in note the RKNN Version.
+
+        ![4](figures/4.png)
 
 
 
-    
+    * ### Updating the USB Stick RKNN software.
 
-
-    
