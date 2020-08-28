@@ -1,8 +1,8 @@
-## DTSIS: RKNN Compute Stick Documentation
+# DTSIS: RKNN Compute Stick Documentation
 
-#### Authored by: **Syed Saad Saif**
+### Authored by: **Syed Saad Saif**
 
-### This repository contains tutorials and guidelines that will be useful for developing AI solutions meant to be run on the RKNN Compute stick.
+## This repository contains tutorials and guidelines that will be useful for developing AI solutions meant to be run on the RKNN Compute stick.
 
 _**Before starting make sure that you have access to the required files and satisfy the dependencies.**_
 
@@ -59,7 +59,7 @@ _**Before starting make sure that you have access to the required files and sati
 
 ### After making sure that you have access to the required files and satisfy the dependencies you can proceed to the next steps.
 
-## Important notes about tutorials:
+# Important notes about tutorials:
 
 * ### Shell Variables
 
@@ -97,6 +97,6 @@ _**Before starting make sure that you have access to the required files and sati
 
     
 
-## Links to documentation:
+# Links to documentation:
 1. [Enviornment Setup](enviornment_setup.md)
 
