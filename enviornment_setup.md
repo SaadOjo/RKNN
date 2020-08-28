@@ -53,12 +53,34 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
             ### OR
 
-        1. Navigate to: ```~/ai/dependencies/rknn-toolkit-v1.4.0-packages/```
+        1. Navigate to: ```~/ai/dependencies/rknn-toolkit-v1.4.0-packages/packages/```
 
         1. Run:
             > ### pip3 install rknn_toolkit-1.4.0-cp36-cp36m-linux_x86_64.whl
 
-        1. Verify that rknn toolkit is properly installed
+        1. To verify if the toolkit is installed run:
+
+            * > ### pip3 list | grep rknn-toolkit
+            
+                ```
+                rknn-toolkit         1.4.0
+                ```
+            
+            * Run python shell and import package.
+
+                > python3
+                
+                On the python interpreter run:
+
+                ```python
+                Python 3.6.9 |Anaconda, Inc.| (default, Jul 30 2019, 19:07:31) 
+                [GCC 7.3.0] on linux
+                Type "help", "copyright", "credits" or "license" for more information.
+                >>> from rknn.api import RKNN
+                >>> RKNN.__verison__
+                ``` 
+                If there are no errors then the toolkit is installed sucessfully
+
 
     * #### Giving USB Compute Stick required permissions  
         1. Plug the Compute Stick in to the USB port of your device.
@@ -88,13 +110,13 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
             _These variables will be used in the following steps._ 
 
-        1. Navigate to: ```~/ai/rockchip/tools ```
+        1. Navigate to: ```~/ai/rockchip/rknn-toolkit/platform-tools/update_rk_usb_rule/linux ```
 
         1. To make script executable run:
-            > ### chmod +x ./update_rk1808_ai_cs_rule.sh
+            > ### chmod +x ./update_rk1808_usb_rule.sh
 
         1. To change Compute Stick USB permissions run:
-            > ### ./update_rk1808_ai_cs_rule.sh
+            > ### ./update_rk1808_usb_rule.sh
 
         1. To verify if the device permissions have been updated run:
 
@@ -106,7 +128,40 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
     * #### Verify inference can be performed on the newly configured Compute Stick
 
-        1. Navigate to: ```~/ai/rockchip/examples/inference_test``` 
+        1. Navigate to: 
+        
+            ```~/ai/rockchip/rknn-toolkit/examples/tensorflow/ssd_mobilenet_v1``` 
+
+        2. Run:
+
+            > ### python3 ./ssd.py
+
+            ```
+            .
+            .	
+            .
+
+            [DEBUG]:  1.1213785393071462e-05
+            W When performing performance evaluation, inputs can be set to None to use fake inputs.
+            ========================================================================
+                                        Performance                              
+            ========================================================================
+            Total Time(us): 18642
+            FPS: 53.64
+            ========================================================================
+            ```
+
+            If there are no errors then the compute stick is working properly.
+
+    * ### Updating the USB Stick rootfs. (Optional but Recommended) 
+
+        If you experienced any issues while performing the previous steps, updating the rootfs image might solve the problems. (incase of broken rootfs) 
+
+    * ### Setting up Network Address Translation (NAT) for the USB Stick.
+
+        Setting up NAT is required for the stick to have access to the internet. This will be needed when we update the software and packages on the stick.
+
+    * ### Updating the USB Stick RKNN version.
 
 
             
