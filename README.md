@@ -33,7 +33,7 @@ _**Before starting make sure that you have access to the required files and sati
     2. Graphics Card: **NVIDIA Card Supporting CUDA** {mention cuda verison}
 
         check graphics card by running:
-        > nvidia-smi
+        > ### nvidia-smi
         ```bash
         Fri Aug 28 09:57:30 2020       
         +-----------------------------------------------------------------------------+
@@ -58,7 +58,45 @@ _**Before starting make sure that you have access to the required files and sati
         ```
 
 ### After making sure that you have access to the required files and satisfy the dependencies you can proceed to the next steps.
-### Links to documentation:
 
+## Important notes about tutorials:
+
+* ### Shell Variables
+
+    In the tutorials Shell variables are used extensively to allow the user to easily copy paste commands into the terminal. However, note that some problems can arise if the tutorial is not followed exactly or if some of the steps are skipped. **Some notes as well as common problems and their solutions are listed here.**
+
+    * Shell variables apply only to the current shell and will not carry over if you open a new terminal.
+
+    * To see if a specific variable is registered in the shell run:
+
+        > ### set | grep [NAME_OF_VARIABLE]
+
+        ```
+        TEST_VARIABLE='TEST VARIABLE'
+        ```
+    * If you still experience issues with shell variables, you can substitute the variable names with the values. Use your judgement to infer what values need to go inplace of the shell varaibles.
+
+        **Example:**
+        
+        > Shell variables set to:
+        >
+        > BUS='002'
+        > 
+        > DEVICE='004'
+
+        The command:
+
+        > ### ls -l /dev/bus/usb/$BUS/$DEVICE
+
+        Can be substitued by:
+
+         > ### ls -l /dev/bus/usb/002/004
+
+
+
+
+    
+
+## Links to documentation:
 1. [Enviornment Setup](enviornment_setup.md)
 
