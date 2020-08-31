@@ -108,6 +108,10 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
         * To Store the **Bus** number and **Device** number as envoirnment varables run.
 
+            > ### BUS='002' (replace with your number)
+
+            > ### DEVICE='004' (replace with your number) 
+
         _These variables will be used in the following steps._ 
 
     1. Navigate to: ```~/ai/rockchip/rknn-toolkit/platform-tools/update_rk_usb_rule/linux ```
@@ -316,6 +320,23 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
         ```
         toybrick-server-1.5.0-0.rk1808.fc28.aarch64
         ```
+
+    1. From a **HOST** terminal navigate to: ```~/ai/test_code/rknn_api_version```
+
+    1. To check the versions of both toolkit and device RKNN version run:
+
+    > ### python3 ./rknn_api_version.py
+
+    ```
+    --> Init runtime environment
+    I NPUTransfer: Starting NPU Transfer Client, Transfer version 2.0.0 (8f9ebbc@2020-04-03T09:12:30)
+    D RKNNAPI: ==============================================
+    D RKNNAPI: RKNN VERSION:
+    D RKNNAPI:   API: 1.4.0 (b4a8096 build: 2020-08-12 10:15:19)
+    D RKNNAPI:   DRV: 1.3.4 (399a00a build: 2020-07-24 14:09:19)
+    D RKNNAPI: ==============================================
+    done
+    ```
 
     
 
