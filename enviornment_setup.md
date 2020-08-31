@@ -126,7 +126,7 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
         ```
         Make sure that the permisions are as expected. i.e **crw-rw-rw-**
 
-* ## Verify inference can be performed on the newly configured Compute Stick
+* ## Verify inference can be performed on the newly configured Compute Stick.
 
     1. Navigate to: 
     
@@ -242,7 +242,57 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
     ![4](figures/4.png)
 
+    1. To enable netfilter ip forwarding run:
+
+        > ### sudo sysctl -w net.ipv4.ip_forward=1
+
+    1. You can verify this by running:
+
+        > ### sudo cat /proc/sys/net/ipv4/ip_forward
+
+        ```
+        1
+        ```
+        Make sure returned value is: **1**.
+
+    1. We will now use redirection rules for NAT using iptables.
+
+        * Flush ip rules for default (filter) table:
+
+            > ### sudo iptables -F
+
+        * Flush ip rules for nat table:
+
+            > ### sudo iptables -t nat -F
+
+        * Add rule for Network Address Translation:
+
+            > ### iptables -t nat -A POSTROUTING -o $MAIN_ETH_NAME -j MASQUERADE
+
+    1. SSH to the USB Stick to verify internet connectivity:
+
+        * Open a new terminal, we will use this terminal to ssh into the device.
+
+        * > ## ssh toybrick@192.168.180.8
+
+            * Password: toybrick
+
+        * Once inside the Compute Stick run:
+
+            > ### sudo ping 8.8.8.8
+
+        If you recieve reply from **8.8.8.8** internet connectivity is verified. If you face issues try the next step.
+
+    1. **(Optional)** Sometimes firewall rules prevent internet access from the Compute Stick. Run the following commands from the **HOST** terminal and not from the terminal we used to SSH into the compute stick.
+
+        > ### sudo iptables -A FORWARD -o $MAIN_ETH_NAME -j ACCEPT
+
+        > ### sudo iptables -A FORWARD -m state --state ESTABLISHED,RELATED -i $MAIN_ETH_NAME -j ACCEPT
+
+    1. After making these changes go back to the SSH terminal and try to ping **8.8.8.8** again. 
 
 
 * ## Updating the USB Stick RKNN software.
+
+    1. If you do not already have a 
 

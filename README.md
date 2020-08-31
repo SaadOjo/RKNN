@@ -10,8 +10,17 @@ _**Before starting make sure that you have access to the required files and sati
 
     1. _**ai**_ folder. 
     
-        This is available at the DTSIS **Network Attached Storage** (NAS).  
-        Copy this folder to your home directory. 
+        This is available at the DTSIS **Network Attached Storage** (NAS).  Copy this folder to your home directory.
+
+        {Add the folder location in NAS} 
+
+        This folder contains all the helper scripts and codes that will be needed for development on the Compute Stick.
+
+        Some important directoies in the AI folder are as follows:
+
+        * ```~/ai/rockchip/rknn-toolkit/docs```
+
+            Contains the official documentation for the rknn-toolkit.
 
 * Dependencies:
 
