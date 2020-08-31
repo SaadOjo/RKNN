@@ -273,7 +273,7 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
         * Open a new terminal, we will use this terminal to ssh into the device.
 
-        * > ## ssh toybrick@192.168.180.8
+        * > ### ssh toybrick@192.168.180.8
 
             * Password: toybrick
 
@@ -294,5 +294,28 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
 * ## Updating the USB Stick RKNN software.
 
-    1. If you do not already have a 
+    _**Note: Internet access from the the USB compute stick is required for this step.**_
+
+    1. Open a new terminal and ssh to the device. (If you do not already have a terminal open)
+
+        > ### sudo ssh toybrick@192.168.180.8 
+
+        * Password: toybrick
+
+
+        All the following commands are to be run from the client device (USB Compute Stick).
+
+    1. To update the software run:
+
+        > ###  sudo dnf update -y
+
+    1. After update is complete verify the device RKNN version:
+
+        > ### rpm -qa | grep toybrick-server
+
+        ```
+        toybrick-server-1.5.0-0.rk1808.fc28.aarch64
+        ```
+
+    
 
