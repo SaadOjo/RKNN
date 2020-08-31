@@ -177,6 +177,13 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
 * ## Setting up Network Address Translation (NAT) for the USB Stick.
 
+    **Resources:**
+
+    If you wish to have a better understanding about how Linux handles NAT the following link serves as a good resource:
+
+    [NAT Configuration Tutorial](https://www.karlrupp.net/en/computer/nat_tutorial)
+    
+
     Setting up NAT is required for the stick to have access to the internet. This will be needed when we update the software and packages on the stick.
 
     The USB stick is recognized by the computer also as an ethernet adaptor, in this step we will use NAT to give the USB Compute Stick ethernet adaptor access to internet from our main ethernet port.

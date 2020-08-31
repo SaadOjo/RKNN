@@ -102,10 +102,18 @@ _**Before starting make sure that you have access to the required files and sati
          > ### ls -l /dev/bus/usb/002/004
 
 
+# Useful External References:
 
+1. [Official Toybrick Webpage](https://t.rock-chips.com/en/portal.php)
+
+    Contains documentation and wiki for 1808 USB Compute Stick, also has a forum. (Chinese site is more upto date)
+2. Refer to the official RKNN documentation located at:
+    ``` ~/ai/rockchip/rknn-toolkit/doc```
 
     
 
 # Links to documentation:
-1. [Enviornment Setup](enviornment_setup.md)
+1. [RKNN Enviornment Setup](enviornment_setup.md)
+1. [RockX Python Example](rockx_python_example.md)
+1. [RockX C++ Example](rockx_cpp_example.md)
 
