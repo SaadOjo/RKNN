@@ -32,7 +32,7 @@ The complete list of RockX modules is as follows:
 
 1. Install the rockx pip package:
 
-    * Navigate to ```~/ai/rockchip/RockX_SDK_V1.2.0_20200302/python```
+    * Navigate to ```~/ai/rockchip/rockx/RockX_SDK_V1.2.0_20200302/python```
 
     OR
 
@@ -52,7 +52,47 @@ The complete list of RockX modules is as follows:
 
         > ### pip3 list | grep RockX
 
-# Python Example
+# Documentation
 
-_**Note: Make sure that you are in the rockx virtual enviornment before running RockX examples.**_
+_**Note: Make sure that you are in the rockx virtual enviornment before you can access help.**_
+
+The documentation for the rockx can be accessed by using the python **help()** command.
+
+1. Open python interactively by running: 
+> ### python3
+
+2. On the python interpreter run the following commands:
+
+```python
+    from rockx import RockX
+    help(RockX)
+
+    > Help on class RockX in module rockx.RockX:
+    >
+    > class RockX(builtins.object)
+    > |  RockX Class
+    > |  
+    > |  Methods defined here:
+    > |  
+    > |  __init__(self, module, target_device=None)
+    > |      __init__
+    > |      :param module: rockx module to create
+    > |      :param target_device:
+    > |  
+    > |  release(self)
+    > | 
+      . 
+      .
+      .
+```
+
+# Python API Tutorial
+
+_**Note: Make sure that you are in the rockx virtual enviornment before running RockX code.**_
+
+1. Navigate to:  ``` ``` 
+
+# Typical Use case
+1. Below we present a typical application that uses several RockX modules to perform face recognition. 
     
+
