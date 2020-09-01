@@ -171,9 +171,13 @@ Before we can use the RK1808S0 Stick we need to perform enviornment setup.
 
     Navigate to: ```~/ai/rockchip/flashTool/unix```
 
-    Run:
+    * To make the flash script executable run:
 
-    > ### ./linux_flash.sh
+    > ### sudo chmod +x ./linux_flash.sh
+
+    * To flash the USB run:
+
+        > ### ./linux_flash.sh
 
 * ## Setting up Network Address Translation (NAT) for the USB Stick.
 

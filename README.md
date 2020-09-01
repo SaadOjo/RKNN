@@ -112,8 +112,24 @@ _**Before starting make sure that you have access to the required files and sati
 
 
 # Links to documentation:
+
+## Getting Started
 1. [RKNN Enviornment Setup](enviornment_setup.md)
+
+## RockX 
 1. [RockX Python Example](rockx_python_example.md)
 1. [RockX C++ Example](rockx_cpp_example.md)
-1. [Computer Vision Programmers Guide: Python](python_programmers_guide.md)
-1. [Computer Vision Programmers Guide: C++](cpp_programmers_guide.md)
+
+## Computer Vision Programmer's Guides
+1. [Computer Vision Programmer's Guide: Python](python_programmers_guide.md)
+1. [Computer Vision Programmer's Guide: C++](cpp_programmers_guide.md)
+
+## Custom AI Models for Compute Engine
+1. [Notes for Model Conversion to RKNN Format]()
+1. [Setting up Machine Learning Platform]()
+
+## Blaze Face
+1. [2D Data Generator]()
+1. [Architecture Modification]()
+1. [Training]()
+1. [Conversion to RKNN]()
