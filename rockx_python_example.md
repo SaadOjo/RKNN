@@ -7,7 +7,6 @@ The complete list of RockX modules is as follows:
 
 {add python list:}
 
-
 # Enviornment Setup
 
 1. Create a conda virtual enviornment for RockX. Since we share a lot of packages from the **rknn_cpu** enviorment, let's clone it.
@@ -87,18 +86,41 @@ The documentation for the rockx can be accessed by using the python **help()** c
 ```
 3. You can also access a auto generated **HTML** version of this documentation here:
 
-    [RockX Documentation.](https://htmlpreview.github.io/?https://github.com/SaadOjo/RKNN/blob/master/rockx.RockX.html)
-# Python API Tutorial
+    [RockX Documentation](https://htmlpreview.github.io/?https://github.com/SaadOjo/RKNN/blob/master/rockx.RockX.html)
+
+    _**Note: You can generate the HTML version of python help by calling:**_
+
+    > ###  pydoc -w rockx.RockX
+
+    It will create the **HTML** File in the current Directory.
+
+# RockX Python API Tutorial
 
 _**Note: Make sure that you are in the rockx virtual enviornment before running RockX code.**_
 
-1. Navigate to:  ``` ``` 
+This part of the document refers only to the RockX api. A programmers guide for Computer Vision Python Programming is also provided which can be accessed [here](python_programmers_guide). 
+
+1. Navigate to:  ```~/ai/rockchip/rockx/python_rockx_api_tutorial```
+
+2. Run the program by running:
+
+    > ### python3 ./python_rockx_api_tutorial.py
+
+    This should start the a program that performs **Face Detection**.
+
+
+## Now let's review the code:
+
 
 # Typical Use Case
+
+_**Note: Make sure that you are in the rockx virtual enviornment before running RockX code.**_
 
 Below we present a typical application that uses several RockX modules to perform face recognition. 
 
 1. Navigate to: ```~/ai/rockchip/rockx/python_face_detection_code```
+
+![Python Face Recogniton Example](figures/face_detection.png)
 
 2. In the subfolder **faces** there are some example faces. The faces in this directory are used to create a database for facial recognition. Feel free to replace the images with your own examples. 
     
@@ -116,4 +138,4 @@ Below we present a typical application that uses several RockX modules to perfor
 
     ![Face Recognition Example](figures/face_recognition_example.png)
 
-### Analyse the code to get a understanding about how to write a typical application using RockX api.
+### Review the code to get a understanding about how to write a typical application using RockX api.
