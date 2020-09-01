@@ -87,7 +87,7 @@ The documentation for the rockx can be accessed by using the python **help()** c
 ```
 3. You can also access a auto generated **HTML** version of this documentation here:
 
-    [RockX Documentation.](rockx.RockX.html)
+    [RockX Documentation.](https://htmlpreview.github.io/?https://github.com/SaadOjo/RKNN/blob/master/rockx.RockX.html)
 # Python API Tutorial
 
 _**Note: Make sure that you are in the rockx virtual enviornment before running RockX code.**_
