@@ -110,10 +110,10 @@ _**Before starting make sure that you have access to the required files and sati
 2. Refer to the official RKNN documentation located at:
     ``` ~/ai/rockchip/rknn-toolkit/doc```
 
-    
 
 # Links to documentation:
 1. [RKNN Enviornment Setup](enviornment_setup.md)
 1. [RockX Python Example](rockx_python_example.md)
 1. [RockX C++ Example](rockx_cpp_example.md)
-
+1. [Computer Vision Programmers Guide: Python](python_programmers_guide.md)
+1. [Computer Vision Programmers Guide: C++](cpp_programmers_guide.md)

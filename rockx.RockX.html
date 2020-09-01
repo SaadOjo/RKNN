@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: class RockX</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>rockx.RockX</strong> = <a name="rockx.RockX">class RockX</a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>RockX&nbsp;Class<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RockX-__init__"><strong>__init__</strong></a>(self, module, target_device=None)</dt><dd><tt>__init__<br>
+:param&nbsp;module:&nbsp;rockx&nbsp;module&nbsp;to&nbsp;create<br>
+:param&nbsp;target_device:</tt></dd></dl>
+
+<dl><dt><a name="RockX-release"><strong>release</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RockX-rockx_carplate_align"><strong>rockx_carplate_align</strong></a>(self, in_img, width, height, pixel_fmt, in_box)</dt><dd><tt>carplate&nbsp;align<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:param&nbsp;in_box:&nbsp;Carplate&nbsp;detect&nbsp;region(RockX.Rect)<br>
+:return:&nbsp;(ret,&nbsp;align_result)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;align_result:&nbsp;RockX.CarplateAlignResult</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_carplate_detect"><strong>rockx_carplate_detect</strong></a>(self, in_img, width, height, pixel_fmt)</dt><dd><tt>carplate&nbsp;detect<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:return:&nbsp;(ret,&nbsp;obj_results)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;obj_results:&nbsp;list&nbsp;of&nbsp;RockX.Object</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_carplate_recognize"><strong>rockx_carplate_recognize</strong></a>(self, in_aligned_img)</dt><dd><tt>carplate&nbsp;recognize<br>
+:param&nbsp;in_aligned_img:&nbsp;Aligned&nbsp;carplate&nbsp;image(numpy&nbsp;ndarray,&nbsp;get&nbsp;from&nbsp;RockX.CarplateAlignResult.aligned_image)<br>
+:return:&nbsp;(ret,&nbsp;recog_result)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;recog_result:&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_align"><strong>rockx_face_align</strong></a>(self, in_img, width, height, pixel_fmt, face_box, face_landmark)</dt><dd><tt>face&nbsp;align<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:param&nbsp;face_box:&nbsp;Face&nbsp;detect&nbsp;region(RockX.Rect)<br>
+:param&nbsp;face_landmark:&nbsp;face&nbsp;5&nbsp;point&nbsp;landmark&nbsp;result(RockX.FaceLandmark),&nbsp;can&nbsp;set&nbsp;to&nbsp;None<br>
+:return:&nbsp;(ret,&nbsp;face_align_image)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;face_align_image:&nbsp;numpy&nbsp;ndarray</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_attribute"><strong>rockx_face_attribute</strong></a>(self, in_aligned_img)</dt><dd><tt>face&nbsp;attribute<br>
+:param&nbsp;in_aligned_img:&nbsp;aligned&nbsp;face&nbsp;image(numpy&nbsp;ndarray)<br>
+:return:&nbsp;(ret,&nbsp;face_attr)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;face_attr:&nbsp;RockX.FaceAttribute</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_detect"><strong>rockx_face_detect</strong></a>(self, in_img, width, height, pixel_fmt)</dt><dd><tt>face&nbsp;detect<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:return:&nbsp;(ret,&nbsp;obj_results)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;obj_results:&nbsp;list&nbsp;of&nbsp;RockX.Object</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_landmark"><strong>rockx_face_landmark</strong></a>(self, in_img, width, height, pixel_fmt, face_box)</dt><dd><tt>face&nbsp;landmark&nbsp;68&nbsp;and&nbsp;5&nbsp;point<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:param&nbsp;face_box:&nbsp;Face&nbsp;detect&nbsp;region(RockX.Rect)<br>
+:return:&nbsp;(ret,&nbsp;face_landmark)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;face_landmark:&nbsp;RockX.FaceLandmark</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_pose"><strong>rockx_face_pose</strong></a>(self, face_landmark)</dt><dd><tt>face&nbsp;pose&nbsp;(angle)<br>
+:param&nbsp;face_landmark:&nbsp;face&nbsp;landmark&nbsp;result(RockX.FaceLandmark)<br>
+:return:&nbsp;(ret,&nbsp;face_angle)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;face_angle:&nbsp;RockX.FaceAngle</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_recognize"><strong>rockx_face_recognize</strong></a>(self, in_aligned_img)</dt><dd><tt>get&nbsp;face&nbsp;feature<br>
+:param&nbsp;in_aligned_img:&nbsp;aligned&nbsp;face&nbsp;image(numpy&nbsp;ndarray)<br>
+:return:&nbsp;(ret,&nbsp;face_feature)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;face_feature:&nbsp;RockX.FaceFeature</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_face_similarity"><strong>rockx_face_similarity</strong></a>(self, face_feature1, face_feature2)</dt><dd><tt>face&nbsp;similarity&nbsp;(Euclidean&nbsp;distance)<br>
+:param&nbsp;face_feature1:&nbsp;Face&nbsp;feature(RockX.FaceFeature)<br>
+:param&nbsp;face_feature2:&nbsp;Face&nbsp;feature(RockX.FaceFeature)<br>
+:return:&nbsp;(ret,&nbsp;similarity)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;similarity:&nbsp;distance&nbsp;of&nbsp;two&nbsp;feature</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_head_detect"><strong>rockx_head_detect</strong></a>(self, in_img, width, height, pixel_fmt)</dt><dd><tt>head&nbsp;detect<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:return:&nbsp;(ret,&nbsp;obj_results)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;obj_results:&nbsp;list&nbsp;of&nbsp;RockX.Object</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_object_detect"><strong>rockx_object_detect</strong></a>(self, in_img, width, height, pixel_fmt)</dt><dd><tt>object&nbsp;detect<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:return:&nbsp;(ret,&nbsp;obj_results)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;obj_results:&nbsp;list&nbsp;of&nbsp;RockX.Object</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_object_track"><strong>rockx_object_track</strong></a>(self, width, height, max_track_time, object_list)</dt><dd><tt>object&nbsp;track&nbsp;(use&nbsp;for&nbsp;video/camera&nbsp;frame)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;max_track_time:&nbsp;Time&nbsp;to&nbsp;continue&nbsp;after&nbsp;the&nbsp;goal&nbsp;disappears<br>
+:param&nbsp;object_list:&nbsp;Detect&nbsp;result(list&nbsp;of&nbsp;RockX.Object)<br>
+:return:&nbsp;(ret,&nbsp;obj_results)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;obj_results:&nbsp;list&nbsp;of&nbsp;RockX.Object</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_pose_body"><strong>rockx_pose_body</strong></a>(self, in_img, width, height, pixel_fmt)</dt><dd><tt>pose&nbsp;body<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:return:&nbsp;(ret,&nbsp;keypoint_array)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;keypoint_array:&nbsp;list&nbsp;of&nbsp;RockX.Keypoint</tt></dd></dl>
+
+<dl><dt><a name="RockX-rockx_pose_finger"><strong>rockx_pose_finger</strong></a>(self, in_img, width, height, pixel_fmt)</dt><dd><tt>pose&nbsp;finger<br>
+:param&nbsp;in_img:&nbsp;Input&nbsp;image(numpy&nbsp;ndarray)<br>
+:param&nbsp;width:&nbsp;Image&nbsp;width<br>
+:param&nbsp;height:&nbsp;Image&nbsp;height<br>
+:param&nbsp;pixel_fmt:&nbsp;Image&nbsp;pixel&nbsp;format<br>
+:return:&nbsp;(ret,&nbsp;keypoint)&nbsp;ret:&nbsp;return&nbsp;code;&nbsp;keypoint:&nbsp;RockX.Keypoint</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CarplateAlignResult</strong> = &lt;class 'rockx.RockX.CarplateAlignResult'&gt;<dd><tt><a href="#rockx.RockX-CarplateAlignResult">CarplateAlignResult</a>(aligned_image,&nbsp;confidence)</tt></dl>
+
+<dl><dt><strong>FaceAngle</strong> = &lt;class 'rockx.RockX.FaceAngle'&gt;<dd><tt><a href="#rockx.RockX-FaceAngle">FaceAngle</a>(pitch,&nbsp;yaw,&nbsp;roll)</tt></dl>
+
+<dl><dt><strong>FaceAttribute</strong> = &lt;class 'rockx.RockX.FaceAttribute'&gt;<dd><tt><a href="#rockx.RockX-FaceAttribute">FaceAttribute</a>(gender,&nbsp;age)</tt></dl>
+
+<dl><dt><strong>FaceFeature</strong> = &lt;class 'rockx.RockX.FaceFeature'&gt;<dd><tt><a href="#rockx.RockX-FaceFeature">FaceFeature</a>(version,&nbsp;len,&nbsp;feature)</tt></dl>
+
+<dl><dt><strong>FaceLandmark</strong> = &lt;class 'rockx.RockX.FaceLandmark'&gt;<dd><tt><a href="#rockx.RockX-FaceLandmark">FaceLandmark</a>(image_width,&nbsp;image_height,&nbsp;face_box,&nbsp;landmarks_count,&nbsp;landmarks,&nbsp;score)</tt></dl>
+
+<dl><dt><strong>Keypoint</strong> = &lt;class 'rockx.RockX.Keypoint'&gt;<dd><tt><a href="#rockx.RockX-Keypoint">Keypoint</a>(count,&nbsp;points,&nbsp;score)</tt></dl>
+
+<dl><dt><strong>Object</strong> = &lt;class 'rockx.RockX.Object'&gt;<dd><tt><a href="#rockx.RockX-Object">Object</a>(id,&nbsp;cls_idx,&nbsp;box,&nbsp;score)</tt></dl>
+
+<dl><dt><strong>Point</strong> = &lt;class 'rockx.RockX.Point'&gt;<dd><tt><a href="#rockx.RockX-Point">Point</a>(x,&nbsp;y)</tt></dl>
+
+<dl><dt><strong>ROCKX_CARPLATE_RECOG_CODE</strong> = ('京', '沪', '津', '渝', '冀', '晋', '蒙', '辽', '吉', '黑', '苏', '浙', '皖', '闽', '赣', '鲁', '豫', '鄂', '湘', '粤', ...)</dl>
+
+<dl><dt><strong>ROCKX_MODULE_CARPLATE_ALIGN</strong> = 11</dl>
+
+<dl><dt><strong>ROCKX_MODULE_CARPLATE_DETECTION</strong> = 10</dl>
+
+<dl><dt><strong>ROCKX_MODULE_CARPLATE_RECOG</strong> = 12</dl>
+
+<dl><dt><strong>ROCKX_MODULE_FACE_ANALYZE</strong> = 4</dl>
+
+<dl><dt><strong>ROCKX_MODULE_FACE_DETECTION</strong> = 1</dl>
+
+<dl><dt><strong>ROCKX_MODULE_FACE_LANDMARK_5</strong> = 8</dl>
+
+<dl><dt><strong>ROCKX_MODULE_FACE_LANDMARK_68</strong> = 2</dl>
+
+<dl><dt><strong>ROCKX_MODULE_FACE_RECOGNIZE</strong> = 3</dl>
+
+<dl><dt><strong>ROCKX_MODULE_HEAD_DETECTION</strong> = 9</dl>
+
+<dl><dt><strong>ROCKX_MODULE_OBJECT_DETECTION</strong> = 5</dl>
+
+<dl><dt><strong>ROCKX_MODULE_OBJECT_TRACK</strong> = 13</dl>
+
+<dl><dt><strong>ROCKX_MODULE_POSE_BODY</strong> = 6</dl>
+
+<dl><dt><strong>ROCKX_MODULE_POSE_FINGER_21</strong> = 7</dl>
+
+<dl><dt><strong>ROCKX_MODULE_POSE_FINGER_3</strong> = 14</dl>
+
+<dl><dt><strong>ROCKX_OBJECT_DETECTION_LABELS_91</strong> = ('???', 'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'trafficlight', 'firehydrant', '???', 'stopsign', 'parkingmeter', 'bench', 'bird', 'cat', 'dog', 'horse', ...)</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_BGR888</strong> = 2</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_BGRA8888</strong> = 4</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_GRAY8</strong> = 0</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_RGB888</strong> = 1</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_RGBA8888</strong> = 3</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_YUV420P_YU12</strong> = 5</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_YUV420P_YV12</strong> = 6</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_YUV420SP_NV12</strong> = 7</dl>
+
+<dl><dt><strong>ROCKX_PIXEL_FORMAT_YUV420SP_NV21</strong> = 8</dl>
+
+<dl><dt><strong>ROCKX_POSE_BODY_KEYPOINTS_NAME</strong> = ('Nose', 'Neck', 'R-Sho', 'R-Elb', 'R-Wr', 'L-Sho', 'L-Elb', 'L-Wr', 'R-Hip', 'R-Knee', 'R-Ank', 'L-Hip', 'L-Knee', 'L-Ank', 'R-Eye', 'L-Eye', 'R-Ear', 'L-Ear')</dl>
+
+<dl><dt><strong>ROCKX_POSE_BODY_KEYPOINTS_PAIRS</strong> = ((1, 2), (1, 5), (2, 3), (3, 4), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10), (1, 11), (11, 12), (12, 13), (1, 0), (0, 14), (14, 16), (0, 15), (15, 17))</dl>
+
+<dl><dt><strong>ROCKX_POSE_FINGER_21_KEYPOINTS_PAIRS</strong> = ((0, 1), (1, 2), (2, 3), (3, 4), (0, 5), (5, 6), (6, 7), (7, 8), (0, 9), (9, 10), (10, 11), (11, 12), (0, 13), (13, 14), (14, 15), (15, 16), (0, 17), (17, 18), (18, 19), (19, 20))</dl>
+
+<dl><dt><strong>ROCKX_RET_FAIL</strong> = -1</dl>
+
+<dl><dt><strong>ROCKX_RET_PARAM_ERR</strong> = -2</dl>
+
+<dl><dt><strong>ROCKX_RET_SUCCESS</strong> = 0</dl>
+
+<dl><dt><strong>Rect</strong> = &lt;class 'rockx.RockX.Rect'&gt;<dd><tt><a href="#rockx.RockX-Rect">Rect</a>(left,&nbsp;top,&nbsp;right,&nbsp;bottom)</tt></dl>
+
+</td></tr></table>
+</body></html>

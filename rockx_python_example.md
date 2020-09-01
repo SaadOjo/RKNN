@@ -85,14 +85,35 @@ The documentation for the rockx can be accessed by using the python **help()** c
       .
       .
 ```
+3. You can also access a auto generated **HTML** version of this documentation here:
 
+    [RockX Documentation.](rockx.RockX.html)
 # Python API Tutorial
 
 _**Note: Make sure that you are in the rockx virtual enviornment before running RockX code.**_
 
 1. Navigate to:  ``` ``` 
 
-# Typical Use case
-1. Below we present a typical application that uses several RockX modules to perform face recognition. 
-    
+# Typical Use Case
 
+Below we present a typical application that uses several RockX modules to perform face recognition. 
+
+1. Navigate to: ```~/ai/rockchip/rockx/python_face_detection_code```
+
+2. In the subfolder **faces** there are some example faces. The faces in this directory are used to create a database for facial recognition. Feel free to replace the images with your own examples. 
+    
+    * The **filename** of the photos represents the person identity in the database.
+
+3. We need to create the face database before we can run face recognition. To create the face database run:
+
+    > ### python3 recognition_inference.py --image_dir=./faces
+
+    This will generate a **SQLite** database file named **face.db**.
+
+4. To start the face recognition program run:
+
+    > ### python3 recognition_inference.py
+
+    ![Face Recognition Example](figures/face_recognition_example.png)
+
+### Analyse the code to get a understanding about how to write a typical application using RockX api.
