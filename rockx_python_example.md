@@ -281,4 +281,4 @@ Below we present a typical application that uses several RockX modules to perfor
 
     ![Face Recognition Example](figures/face_recognition_example.png)
 
-### Review the code to get a understanding about how to write a typical application using RockX api.
+### Review the code to get a understanding about how to write a typical application using RockX API.
