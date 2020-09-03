@@ -33,6 +33,10 @@ As you can see that there is a lot of common work that needs to be done for a co
 
 **Custom in-house helper python libraries and boilerplate codes are provided for your convenience.**
 
+_**Note:** It might be useful to create your own packages and also make changes to existing ones. You can also upload to PyPI. To create your packages follow the resources provided below as a reference._ 
+
+* [Making a python Package.](https://python-packaging-tutorial.readthedocs.io/en/latest/setup_py.html)
+* [Beginner's Guide.](https://medium.com/swlh/beginners-guide-to-create-python-wheel-7d45f8350a94)
 ## Install libraries
 
 _**Note: Make sure that you are in the desired conda virtual enviornment before proceeding with library installation.**_
@@ -43,15 +47,16 @@ _**Note: Make sure that you are in the desired conda virtual enviornment before 
 
     _**Note: Please pay attention to the version numbers as they might change with updates to packages, always install the latest version when multiple wheels are available.**_
     * To install multithreading video capture library run:
-    > ### pip3 install video_capture-1.0-py3-none-any.whl
+    > ### pip3 install dtsis_video_capture-1.0-py3-none-any.whl
 
     _**Note: This library is adapted form the project at: ```https://github.com/gilbertfrancois/video-capture-async```**_
 
     * To install the metrics library run:
-    > ### metrics-1.0-py3-none-any.whl
+    > ### dtsis_metrics-1.0-py3-none-any.whl
 
     * ### Install the text overlay library by running:
     > 
+
 Note that the source code of the wheels is also provided at ```~/ai/helper/libraries/source/``` and can be reviewed for better understanding how the code works. 
 
 ## Library APIs
@@ -60,7 +65,7 @@ Note that the source code of the wheels is also provided at ```~/ai/helper/libra
 
 * Import the library like: 
     ```python
-    from video_capture.capture import VideoCaptureThreading
+    from dtsis_capture import VideoCaptureThreading
     ```
 * Initialize the capture stream like:
     ```python
@@ -98,9 +103,64 @@ Note that the source code of the wheels is also provided at ```~/ai/helper/libra
     ```
 
 ### Metrics 
-    Average
-    FPS
+The metrics library contains two classes **fps** and **average**:
+
+1. ### **average**
+    The _**average**_ library can be used to create a running average of noisy variables (such as model inference time) be able to better understand the evolution of the variable.
+
+    1. Import the library:
+        ```python
+            from dtsis_metrics import average
+        ```
+    
+    1. Create a new instance for every variable you want to average. Here we assume that we have a variable ```noisy_variable``` of which we would like to get a running average. Give the number of samples to average over as an argument to the constructor.
+
+        ```python
+        ...
+        noisy_var_average = average(100)
+        ```
+    1. Pass the value the variable to be averaged. Consider we have a loop, we will pass the value of the variable at each loop iteration.
+        ```python
+        while True:
+            #Value of noisy variable updated
+            ...
+            noisy_var_average.update(noisy_variable) 
+        ```
+    1. Get the averaged (running average) value of the variable by calling:
+        
+        ```python
+            averaged_noisy_var = noisy_var_average.average()
+        ```
+        Please note that until the **update** method is called at least the **number of samples to average** (argument passed to the constructor) times, the **average** method will just return the latest value of the variable. 
+
+    1. ### **fps**
+
+    The _**fps**_ library is a convenient way to calculate the fps of your main loop.
+
+    1. Initialize the python fps function by:
+        
+        ```python
+        fps_counter = fps()
+        ```
+        Note that the timer starts first timer starts as soon as you call the constructor so it is better to initialize it just before entering the loop. However note that this should only affect the first fps value and will not matter in the long run.
+
+    1. Inside the loop call the update method at exactly once.
+        ```python
+        while True:
+            ...
+            #rest of code
+            ...
+            fps_counter.update()
+        ```
+
+    1. Get the current fps value by calling:
+        ```python
+            fps_value = fps.counter.get_fps()
+        ```
+
 ### Text Overlay
+
+It is useful to show some information overlayed on the screen. opencv provides a function but it requries a lot of parameters to be calculated manually. This library provides a wrapper to the opencv text overlay function to make this a bit easier.
 
 ## Boilerplate codes
 
