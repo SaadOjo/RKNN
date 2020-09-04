@@ -52,10 +52,10 @@ _**Note: Make sure that you are in the desired conda virtual enviornment before 
     _**Note: This library is adapted form the project at: ```https://github.com/gilbertfrancois/video-capture-async```**_
 
     * To install the metrics library run:
-    > ### dtsis_metrics-1.0-py3-none-any.whl
+    > ### pip3 install dtsis_metrics-1.0-py3-none-any.whl
 
     * ### Install the text overlay library by running:
-    > 
+    > ### pip3 install dtsis_text_overlay-1.0-py3-none-any.whl
 
 Note that the source code of the wheels is also provided at ```~/ai/helper/libraries/source/``` and can be reviewed for better understanding how the code works. 
 
@@ -103,7 +103,9 @@ Note that the source code of the wheels is also provided at ```~/ai/helper/libra
     ```
 
 ### Metrics 
-The metrics library contains two classes **fps** and **average**:
+The metrics library contains **fps**, **average** and **stopwatch** libraries:
+
+## Usage:
 
 1. ### **average**
     The _**average**_ library can be used to create a running average of noisy variables (such as model inference time) be able to better understand the evolution of the variable.
@@ -133,9 +135,11 @@ The metrics library contains two classes **fps** and **average**:
         ```
         Please note that until the **update** method is called at least the **number of samples to average** (argument passed to the constructor) times, the **average** method will just return the latest value of the variable. 
 
-    1. ### **fps**
+1. ### **fps**
 
     The _**fps**_ library is a convenient way to calculate the fps of your main loop.
+
+    ## Usage:
 
     1. Initialize the python fps function by:
         
@@ -158,14 +162,76 @@ The metrics library contains two classes **fps** and **average**:
             fps_value = fps.counter.get_fps()
         ```
 
-### Text Overlay
+1. ### **stopwatch**
 
-It is useful to show some information overlayed on the screen. opencv provides a function but it requries a lot of parameters to be calculated manually. This library provides a wrapper to the opencv text overlay function to make this a bit easier.
+    **stopwatch** is a convenience class to measure the processing time of functions and inference times of models.
 
-## Boilerplate codes
+    To import the class:
+    ```python
+    from dtsis_metrics import stopwatch
+    ```
 
-1. Navigate to: ```~/ai/helper/boilerplate_codes/```
+    Call the constructor:
+    ```python
+    sw = stopwatch()
+    ```
+
+    Call the **start** method before the function to be timed starts:
+    ```python
+    sw.start()
+    ```
+
+    Call the stop method after the function returns:
+    ```python
+    elapsed_time = sw.stop()
+    ```
+
+    
+1. ### Text Overlay
+
+    It is useful to show some information overlayed on the screen. opencv provides a function but it requries a lot of parameters to be calculated manually. This library provides a wrapper to the opencv text overlay function to make this a bit easier.
+
+    ## Usage:
+
+    1. Import the library:
+        ```python
+        from dtsis_text_overlay import text_overlay
+        ```
+
+    1. Initialize the text overlay the object by running the following command. Pass the **width** and **height** of the camera stream as the two parameters.
+
+        ```python
+        to = text_overlay(1280, 720)
+        ```
+
+    1. Update the frame to overlay text on by calling:
+
+        ```python
+        to.update_frame(frame)
+        ```
+    1. Overlay text by calling overlay text method. It takes two parameters, the text and the xpos. Text is just the string and the xpos is the position in decimal of the text starting position. For example a value of _**0.5**_ will put the text starting from the middle of the screen. This method can be called multiple times and the y position of the text will be automatically incremented.
+
+        ```python
+        to.overlay_text("text 1", 0.6)
+        to.overlay_text("text 2", 0.6)
+        ```
+        ![Text Overlay](figures/text_overlay.png)
+
+        Do keep in mind that text overlay only updates the frame and does not display it. _**Refer to Python OpenCV essentials section below for more details on how to display an image.**_
+
+    ## Boilerplate codes
+
+    1. Navigate to: ```~/ai/helper/boilerplate_codes/```
+
+        Run:
+        > ### python3 boilerplate_computer_vison_app.py
+
+        This example shows some dummy data, It does not include an actual AI model inference. However, this example can be quicky adapted to any machine learning algorithim. The code is provided here for quick reference.
+
+For developing computer vision applications eventually the need will arise to manipuate the data. Both the input images as well as the output from the model will may need to be modified. The two python libraries _**OpenCV**_ and _**numpy**_ are useful tools to quickly and efficiently make necessary changes. In the next sections common functionalities needed for computer vision applications are listed and explained.
 
 # Python OpenCV essentials
+
+
 
 # Numpy essentials
