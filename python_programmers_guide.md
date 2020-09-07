@@ -439,14 +439,187 @@ If you fail this step make sure that you are in the desired conda enviornment th
         break
     ```
 
-    In the code snipped above if the 'q' key is pressed the main loop breaks.
+    In the code snipped above if the _**'q'**_ key is pressed the main loop breaks.
 
 # Numpy essentials
 
-1. expand dims
+Numpy is a python library that provides a easy and efficient way to deal with multi-dimensional arrays. A lot of times the image provided to us is a numpy array. At times the dimensions and type of the image must be manipulated. Description and usage of many common functions are provided below. 
+
+For further details look at the official documentation [here](https://numpy.org/doc/1.19/).
+
+Import numpy as follows:
+```python
+import numpy as np
+```
+
+1. Find array shape.
+
+    let **array** be an numpy array. 
+
+    We can find the shape of the array by:
+
+    ```python
+    print(array.shape)
+    ```
+
+1. Find array data type.
+
+    let **array** be an numpy array. 
+
+    We can find the data type of the array by:
+
+    ```python
+    print(array.dtype)
+    ```
+
+1. Expand Dimension:
+
+    Sometimes a model expects data in a specific format. Common formats include (N,H,W,C) and (H,W,C,N). 
+    * H = HEIGHT
+    * W = WIDTH
+    * N = BATCH_SIZE
+    * C = NUMBER_OF_CHANNELS (RGB images have 3 channels)
+
+    The image that we get from openCV is only 3 dimensional of format (H,W,C) and we must expand the dimension. To expand the dimension from (H,W,C) to (N,H,W,C) we can run:
+
+    ```python
+    numpy.expand_dims(frame, axis=0)
+    ```
+    We choose the axis 0 here because we want to add a dimension in the beginning. 
+
+    Let's look at an example to understand better:
+
+    Let's say that we have a image with the following parameters.
+
+    * WIDTH = 640
+    * HEIGHT = 480
+    * CHANNELS = 3 (RGB)
+
+    In this case **OpenCV** should give us a image of the following shape (480,640,3).
+
+    After running the code snipped above the new shape will be (1,480,640,3). i.e the dimension of the array has been expanded and added to the 0'th axis. 
+
+
+1. Squeeze Dimensions:
+
+    If you have a numpy array which has a shape that includes 1. We can call squeeze to get rid of all the dimensions that have only one number of elements.
+    
+    ```python
+    squeezed_array = np.squeeze(array)
+    ```
+
+    For example:
+
+    (1,3,2,1) --> (3,2)
+
+    A specific axis can also be removed. In this case the axis should be removed should only have a single element.
+
+    ```python
+    squeezed_array = np.squeeze(array, axis=0)
+    ```
+
+    For example if we sqeeze on axis=0:
+
+    (1,3,2,1) --> (3,2,1)
+
 1. reshape
-1. random
+
+1. zeros
+    Create a multi-dimensional array with all elements zero. The argument to the function is a tuple that is the desired shape of the array.
+
+    ```python
+    array = np.zeros( (2,2,2) )
+    ```
+1. Random array
+    
+    Get a array of desired shaped whose values are sampled from a uniform distribution in the range [0,1).
+
+    ```python
+    random_array = np.random.rand(2,2,2)
+    ```
+    _**Note that the argument to the function is  not a tuple but the desired number of elements in each axis seperated by a comma.**_
+    
 1. Copy
-1. indexing
-1. Change data type
+    If you want to copy a numpy array you need to use the copy function.
+
+    Doing the following does not copy the array rather both variables now point to the same location in memory.
+
+    ```python
+    array_2 = array_1 # The data is not copied here
+    ```
+
+    The proper way to copy is as follows:
+
+    ```python
+    array_2 = array_1.copy()    
+    ```
+1. Change array data type.
+    Numpy can store the data using different data types. It is sometime needed to convert the data between the data types. Convert the data type as follows.
+
+    ```python
+    converted_array = array.astype('uint8')
+    ```
+
+    A list of numpy data types are provided [here.](https://numpy.org/devdocs/user/basics.types.html)
+    
 1. Transpose
+    Using the transpose function you can change the order of the axis of an array. This can be useful for example of you have a image with shape **(HEIGHT, WIDTH, CHANNELS)** and you want to change it to **(WIDTH, HEIGHT, CHANNELS)**. 
+
+    A practical example in IPython:
+
+    ```python
+    In [1]: import numpy as np
+
+    In [2]: width = 640
+
+    In [3]: height = 480
+
+    In [4]: fake_image = np.random.rand(width, height, 3)
+
+    In [5]: print(fake_image.shape)
+    (640, 480, 3)
+
+    In [6]: permuted_image = np.transpose(fake_image,(1,0,2))
+
+    In [7]: print(permuted_image.shape)
+    (480, 640, 3)
+
+    ```
+1. Slicing and indexing
+
+    For some applications we might need to get a subset of the array, this section describes the various ways in which this action can be performed.
+
+    For more details about indexing, refer to the official documentation [here](https://numpy.org/doc/stable/reference/arrays.indexing.html).
+
+    For a simple 1 dimensional array, the desired elements can be accessed as follows.
+
+    the format is:
+
+    x_sliced = x[i:j:k]
+
+    Where:
+        * i = starting index
+        * j = ending index 
+        * k = step size
+    ```python
+    x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    x[1:7:2] 
+    >> array([1, 3, 5])
+    ```
+
+    For multi-dimensional arrays commas can be used to seperate the slicing for each axis. 
+
+    IPython example:
+    ```python
+    In [1]: import numpy as np
+
+    In [2]: x = np.zeros((3,3,3))
+
+    In [3]: x.shape
+    Out[3]: (3, 3, 3)
+
+    In [4]: x_sliced = x[0:3,0:2,0:1]
+
+    In [5]: x_sliced.shape
+    Out[5]: (3, 2, 1)
+    ```
