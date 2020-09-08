@@ -610,6 +610,7 @@ import numpy as np
     For multi-dimensional arrays commas can be used to seperate the slicing for each axis. 
 
     IPython example:
+
     ```python
     In [1]: import numpy as np
 
@@ -623,3 +624,5 @@ import numpy as np
     In [5]: x_sliced.shape
     Out[5]: (3, 2, 1)
     ```
+
+    

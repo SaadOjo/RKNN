@@ -125,7 +125,8 @@ _**Before starting make sure that you have access to the required files and sati
 1. [Computer Vision Programmer's Guide: C++](cpp_programmers_guide.md)
 
 ## Custom AI Models for Compute Engine
-1. [Notes for Model Conversion to RKNN Format]()
+1. [Reference AI Models for Computer Vison Applications](reference_models.md)
+1. [Notes for Model Conversion to RKNN Format](rknn_model_conversion_notes.md)
 1. [Setting up Machine Learning Platform]()
 
 ## Blaze Face
